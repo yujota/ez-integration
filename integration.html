@@ -21,10 +21,12 @@
     <script>
         const EXTENSION_ID = "locbnibbgabdeleihmocpfgjgjnofede";
         const EXTENSION_PAGE = "open_handler.html";
-        console.log("query", queryParams);
+        const queryString = window.location.search; // Contains ?state=...
+        console.log("query", queryString);
 
         document.getElementById('openBtn').addEventListener('click', () => {
             const queryString = window.location.search; // Contains ?state=...
+            console.log("query", queryString);
             
             if (queryString && queryString.includes("state=")) {
                 const targetUrl = `chrome-extension://${EXTENSION_ID}/${TARGET_PAGE}${queryString}`;
